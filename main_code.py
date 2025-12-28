@@ -1,16 +1,22 @@
 student = {}
+print("MENU: \n1. All Name\n2. All details\n3. Student name:")
 
-with open("student.txt","r") as file:
-    for line in file:
-        parts = line.strip().split(",")
-        name = parts[0]
-        student[name] = {}
-        for item in parts[1:]:
-            subject, mark = item.split("=")
-            student[name][subject] = int(mark)
+try:
+    with open("student.txt","r") as file:
+        for line in file:
+            parts = line.strip().split(",")
+            name = parts[0]
+            student[name] = {}
+            for item in parts[1:]:
+                subject, mark = item.split("=")
+                student[name][subject] = int(mark)
+except FileNotFoundError:
+    print("Error, file doesn't found, please create file first ")
+except Exception as e:
+    print("Error reading file: ", e)
 
 def code():
-    user = input("Enter the student name: ").lower()
+    user = input("Enter the command or student name: ").lower()
     if user == "all name":
         print("STUDENT NAME: ")
         for st_name, st_data in student.items():
@@ -25,13 +31,12 @@ def code():
 
     else:        
         if user in student:
-            total = 0
-            for marks in student[user].values():
-                total += marks
-            percentage = total/400*100
+            total = sum(student[user].values())
+            percentage = total/(len(student[user])*100)*100
             print("SUBJECT AND MARKS: ")
             for subject, mark in student[user].items():
                 print(f"{subject.capitalize()} : {mark}")
+            print()
             
             if percentage >= 80:
                 grade = "A+"
@@ -43,11 +48,9 @@ def code():
                 grade = "C"
             else:
                 grade = "F"
+            status = "passed" if percentage >= 40 else "failed"
             print("STUDENT DETAILS: ")    
-            if percentage >= 40:
-                print(f"Name : {user.capitalize()}\nTotal Marks : {total}\nStatus : Passed\nPercentage: {percentage}%\nGrade : {grade}")
-            else:
-                print(f"Name : {user.capitalize()}\nTotal Marks : {total}\nStatus : Failed\nPercentage: {percentage}%\nGrade : {grade}")
+            print(f"Name : {user.capitalize()}\nTotal Marks : {total}\nStatus : {status}\nPercentage: {percentage}%\nGrade : {grade}")
 
         else:
             print("user not found")
