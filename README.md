@@ -1,6 +1,6 @@
 This is a Python program that allows users to view the marks of students in multiple subjects. It calculates total marks, percentage, pass/fail status, and grade for each student.
 
-FEATURES:
+## Features
 - View subject-wise marks for any student
 - Calculates total marks
 - Calculates percentage
