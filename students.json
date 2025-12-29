@@ -1,0 +1,20 @@
+{
+    "ayyan": {
+        "maths": 53,
+        "science": 63,
+        "physics": 25,
+        "english": 63
+    },
+    "liya": {
+        "maths": 62,
+        "science": 62,
+        "physics": 23,
+        "english": 62
+    },
+    "Ami": {
+        "maths": 53,
+        "science": 53,
+        "physics": 14,
+        "english": 51
+    }
+}
