@@ -1,6 +1,0 @@
-ayyan,maths=56,english=65,physics=63,chemistry=78
-sam,maths=65,english=75,physics=87,chemistry=96
-mick,maths=53,english=53,physics=54,chemistry=86
-liya,maths=26,english=32,physics=57,chemistry=75
-hala,maths=62,english=63,physics=86,chemistry=57
-harry,maths=75,english=35,physics=87,chemistry=87
